@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(210, 217, 224);
+}
+
+#div1{
+    text-align: center;
+    box-shadow: 1px 1px 5px rgb(44, 118, 255);
+    padding: 30px;
+    width: 900px;
+    margin: auto;
+    margin-top: 40px;
+    background-color: whitesmoke;
+    border-radius: 50px;
+}
+
+
+#div2{
+    border-radius: 10px;
+    width: 50%;
+    display: inline-block;
+}
+
+#criarPesq{
+    display: inline-block;
+    padding: 10px;
+    margin-left: 20px;
+    position: relative;
+    bottom: 180px;
+}
+
+.bList{
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 1px 1px 5px black;
+    cursor: pointer;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="form1">
+        <div class="card">
+            <div class="topo">
+                <h2>Cadastro</h2>
+                <p>Insira seus dados abaixo para se cadastrar</p>
+            </div>
+
+            <div class="cadastro">
+                <label for="">Nome</label>
+                <input type="text" name="nome" id="" placeholder="Digite seu nome" required>
+            </div>
+
+            <div class="cadastro">
+                <label for="">Sobrenome</label>
+                <input type="text" name="snome" id="" placeholder="Digite seu sobrenome" required>
+            </div>
+
+            <div class="cadastro">
+                <label>Email</label>
+                <input id="email1" type="email" name="email" placeholder="Digite seu email aqui" required>
+            </div>
+
+            <div class="cadastro">
+                <label>Senha</label>
+                <input type="password" name="senha" placeholder="Digite sua senha aqui" required>
+            </div>
+
+            <div class="cadastro">
+                <label>Confirme a senha</label>
+                <input type="password" name="csenha" placeholder="Digite a mesma senha digitada acima" required>
+            </div>
+
+            <div class="cadastro btn">
+                <button id="btnCad">CADASTRAR</button>
+            </div>
+
+            <div class="cadastro return">
+                <p>ou</p>
+                <a href="/TelaLogin/login.html">Voltar para o login</a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
