@@ -1,0 +1,39 @@
+create database bancodedados
+default character set utf8
+default collate utf8_general_ci;
+
+CREATE TABLE Usuario (
+    IDUsuario int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Nome Varchar(50),
+    Senha Varchar(30),
+    Email Varchar(25)
+); 
+
+CREATE TABLE Pesquisa (
+	IDPesquisa int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    origem Enum('Facebook', 'Instagram'),
+    TempoFimPesquisa Date,
+    TempoInicioPesquisa Date,
+    Descricao Varchar(100),
+    palavraChave Varchar(20),
+    fk_Usuario_IDUsuario int(11)
+);
+
+CREATE TABLE Coleta (
+    Dia Date,
+    IDColeta Int(11) PRIMARY KEY,
+    palavraChave Varchar(20),
+    qtd Int(11),
+    Origem Enum('Facebook', 'Instagram'),
+    fk_Pesquisa_IDPesquisa int(11)
+);
+ 
+ALTER TABLE Pesquisa ADD CONSTRAINT FK_Pesquisa_2
+    FOREIGN KEY (fk_Usuario_IDUsuario)
+    REFERENCES Usuario (IDUsuario)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Coleta ADD CONSTRAINT FK_Coleta_2
+    FOREIGN KEY (fk_Pesquisa_IDPesquisa)
+    REFERENCES Pesquisa (IDPesquisa)
+    ON DELETE RESTRICT;
