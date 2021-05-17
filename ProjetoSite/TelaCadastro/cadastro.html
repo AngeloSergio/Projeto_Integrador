@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form class="form1">
+    <form class="form1" action="cadastroo.php" method="POST">
         <div class="card">
             <div class="topo">
                 <h2>Cadastro</h2>
@@ -18,27 +18,27 @@
 
             <div class="cadastro">
                 <label for="">Nome</label>
-                <input type="text" name="nome" id="" placeholder="Digite seu nome" required>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome" maxlength='20'required>
             </div>
 
             <div class="cadastro">
                 <label for="">Sobrenome</label>
-                <input type="text" name="snome" id="" placeholder="Digite seu sobrenome" required>
+                <input type="text" name="snome" id="" placeholder="Digite seu sobrenome" maxlength="30" required>
             </div>
 
             <div class="cadastro">
                 <label>Email</label>
-                <input id="email1" type="email" name="email" placeholder="Digite seu email aqui" required>
+                <input id="email1" type="email" name="email" placeholder="Digite seu email aqui" maxlength="30" required>
             </div>
 
             <div class="cadastro">
                 <label>Senha</label>
-                <input type="password" name="senha" placeholder="Digite sua senha aqui" required>
+                <input type="password" name="senha" placeholder="Digite sua senha aqui" maxlength="15" required>
             </div>
 
             <div class="cadastro">
                 <label>Confirme a senha</label>
-                <input type="password" name="csenha" placeholder="Digite a mesma senha digitada acima" required>
+                <input type="password" name="csenha" placeholder="Digite a mesma senha digitada acima" maxlength="15" required>
             </div>
 
             <div class="cadastro btn">
@@ -50,6 +50,7 @@
                 <a href="/TelaLogin/login.html">Voltar para o login</a>
             </div>
         </div>
+        
     </form>
 </body>
 </html>
