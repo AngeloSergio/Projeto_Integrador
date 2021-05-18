@@ -1,0 +1,60 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url(/cotacao.jpg);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+h1{
+    text-align: center;
+    padding: 20px;
+}
+
+input{
+    display:block;
+    height: 55px;
+    width: 400px;
+    margin: 10px;
+    border-radius: 30px;
+    border: 1px solid black;
+    font-size: 16pt;
+    padding: 10px 20px;
+    outline: none;
+}
+
+#corpo-form{
+    /*background-color: red;*/
+    width: 420px;
+    margin: 130px auto 0px auto;
+}
+
+#corpo-form-cad{
+    width: 420px;
+    margin: 80px auto 0px auto;
+}
+
+#h1-cad{
+    width: 420px;
+    margin: 100px auto 0px auto;
+}
+
+input[type=submit]{
+    background-color: #FF0066;
+    border: none;
+    cursor: pointer;
+}
