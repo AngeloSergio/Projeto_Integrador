@@ -10,8 +10,8 @@
 <body>
     <div id="corpo-form-cad">
         <h1 id="h1-cad">CADASTRAR</h1>
-        <form method="POST">
-        <input type="text" name= "nome" placeholder="Digite seu nome" maxlength ="30">
+        <form id="form-cadastro" action="usuarios.php" method="POST">
+            <input type="text" name= "nome" placeholder="Digite seu nome" maxlength ="30">
             <input type="email" name= "email" placeholder="Digite seu email" maxlength="30">
             <input type="password" name= "senha" placeholder="Digite sua senha" maxlength="15">
             <input type="password" name= "confsenha" placeholder="Confirme sua senha" maxlength="15">

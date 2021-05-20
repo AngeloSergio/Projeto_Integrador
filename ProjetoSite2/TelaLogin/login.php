@@ -15,10 +15,10 @@ $u = new Usuario;
 <body>
     <div id="corpo-form">
         <h1>ENTRAR</h1>
-        <form method="POST">
+        <form action="usuarios.php" method="POST">
             <input type="email" name= "email" placeholder="E-mail">
             <input type="password"  name= "senha" placeholder="Senha">
-            <input type="submit" value="ACESSAR">
+            <input href="AreaPrivada.php" type="submit" value="ACESSAR">
             <a href="cadastrar.php">Ainda não é inscrito? <strong>Cadastre-se!</strong></a>
         </form>
     </div>
