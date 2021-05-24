@@ -7,17 +7,18 @@ input{
     height: 40px;
     margin-top: 5px;
     margin-bottom: 10px;
+    outline: none;
+    padding: 5px;
 }
 
 div{
-    background-color: rgb(189, 190, 235);
+    background-color: rgb(124, 126, 223);
     width: 50%;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 20px;
     text-align: center;
     padding: 15px;
     border-radius: 50px;
-    box-shadow: 1px 1px 1px 1px;
 }
 
 body{
@@ -34,4 +35,35 @@ body{
     margin-top: 5px;
     margin-bottom: 10px;
     background-image: linear-gradient(to left, rgb(47, 50, 241), cyan);
+    margin-top: 20px;
+}
+
+#btnPesquisar:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to left, cyan, rgb(47, 50, 241));
+}
+
+#voltar{
+    background-image: linear-gradient(to left, rgb(47, 50, 241), cyan);
+    border-radius: 15px;
+    border: none;
+    width: 70px;
+}
+
+#voltar:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to left, cyan, rgb(47, 50, 241)); 
+}
+
+#desc{
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+    border: none;
+    width: 400px;
+    height: 60px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    outline: none;
+    padding: 5px;
 }
