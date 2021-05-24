@@ -44,7 +44,7 @@
         <div id="criarPesq">
             <h3>Nova pesquisa</h3>
             <p>Clique no botão abaixo para realizar uma nova pesquisa:</p>
-            <button class="bList">Criar pesquisa</button>
+            <button class="bList" onclick="window.location.href='http://127.0.0.1:5500/TelaPesquisa/inicio.php'">Criar pesquisa</button>
         </div>
     </div>
 </body>
