@@ -1,0 +1,37 @@
+input{
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+    border: none;
+    width: 300px;
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+div{
+    background-color: rgb(189, 190, 235);
+    width: 50%;
+    margin: auto;
+    margin-top: 150px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: 1px 1px 1px 1px;
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#btnPesquisar{
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-image: linear-gradient(to left, rgb(47, 50, 241), cyan);
+}

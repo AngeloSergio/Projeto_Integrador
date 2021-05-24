@@ -11,8 +11,9 @@ body{
 a{
     color: blue;
     text-decoration: none;
-    text-align: right;
+    text-align: center;
     display: block;
+    margin-top: 10px;
 }
 
 a:hover{
@@ -39,13 +40,12 @@ input{
 
 input[type=submit]{
     height: 55px;
-    width: 400px;
-    margin: 10px;
+    width: 300px;
+    margin: auto;
     border-radius: 20px;
     border: 1px solid black;
     font-size: 14pt;
     padding: 10px 20px;
-    
     cursor: pointer;
 }  
 
