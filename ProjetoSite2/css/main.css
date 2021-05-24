@@ -9,9 +9,9 @@ body{
 }
 
 a{
-    color: blue;
+    color: white;
     text-decoration: none;
-    text-align: center;
+    text-align: right;
     display: block;
     margin-top: 10px;
 }
@@ -81,6 +81,7 @@ div.msg-erro{
     width: 420px;
     margin: 30px auto;
     padding: 10px;
-    border: 1px;
-    color: blue;
+    background-color: rgba(205, 68, 50, 0.726);
+    border: 1px solid rgb(139, 55, 34);
+    color: white;
 }

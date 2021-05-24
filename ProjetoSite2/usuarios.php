@@ -46,5 +46,4 @@ Class Usuario {
             return false;
         }
     }
-}
 ?>
