@@ -41,6 +41,7 @@ Class Usuario {
             $dado = $sql->fetch();
             session_start();
             $_SESSION['IDUsuario'] = $dado['IDUsuario'];
+            return true;
         } else {
             return false;
         }

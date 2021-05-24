@@ -10,12 +10,12 @@ $u = new Usuario;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div id="corpo-form">
         <h1>ENTRAR</h1>
-        <form action="usuarios.php" method="POST">
+        <form method="POST">
             <input type="email" name= "email" placeholder="E-mail">
             <input type="password"  name= "senha" placeholder="Senha">
             <input href="AreaPrivada.php" type="submit" value="ACESSAR">
@@ -41,8 +41,9 @@ $u = new Usuario;
             {
             ?>
             <div class="msg-erro"> 
-                E-mail e/ou senha estão incorretos! 
+                E-mail e/ou senha estão incorretos!
             </div>
+                
             <?php
             }
         } 

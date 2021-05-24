@@ -1,9 +1,9 @@
 <?php 
     session_start();
     if (!isset($_SESSION['IDUsuario'])) {
-        header("location: index.php")
+        header("location: index.php");
         exit();
     }
 ?>
 
-SEJA BEM VINDO!
+<div> SEJA BEM VINDO! </div>
