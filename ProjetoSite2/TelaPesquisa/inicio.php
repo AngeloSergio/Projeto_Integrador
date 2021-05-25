@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="voltar" onclick="window.location.href='http://127.0.0.1:5500/TelaInicial/inicio.html'">Voltar</button>
+    <button id="voltar" onclick="window.location.href='http://127.0.0.1:5500/TelaInicial/inicio.php'">Voltar</button>
     <div>
         <form action="" method="POST">
             <h2>Criar pesquisa</h2>

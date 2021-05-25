@@ -9,9 +9,9 @@ body{
 }
 
 a{
-    color: white;
+    color: blue;
     text-decoration: none;
-    text-align: right;
+    text-align: center;
     display: block;
     margin-top: 10px;
 }

@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if (!isset($_SESSION['IDUsuario'])) {
-        header("location: index.php");
+        header("location: \login.php");
         exit();
     } 
 ?>
@@ -20,7 +20,7 @@
     <button class="contaConfig" onclick="window.location.href='http://127.0.0.1:5500/TelaUsuario/telaInicio.html'">Configurações da conta</button>
     <div id="div1">
         
-        <h2> Olá, seja bem vindo! </h2>
+        <h2> Olá, seja bem vindo!</h2>
         
         
         <div id="div2">
