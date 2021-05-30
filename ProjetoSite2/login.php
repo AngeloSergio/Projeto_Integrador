@@ -35,7 +35,7 @@ $u = new Usuario;
         {
             if($u->logar($email, $senha)) 
             {
-                header("location: TelaInicial.php");
+                header("location: TelaInicial/inicio.php");
             } 
             else 
             {
