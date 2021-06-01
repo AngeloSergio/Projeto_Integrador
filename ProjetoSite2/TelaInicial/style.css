@@ -7,7 +7,7 @@ body {
   text-align: center;
   box-shadow: 1px 1px 10px blue;
   padding: 30px;
-  width: 900px;
+  width: 1100px;
   margin: auto;
   margin-top: 40px;
   background-color: whitesmoke;
@@ -15,17 +15,72 @@ body {
 }
 
 #div2 {
+  text-align: center;
   border-radius: 10px;
   width: 50%;
   display: inline-block;
 }
 
 #criarPesq {
+  text-align: center;
   display: inline-block;
   padding: 10px;
-  margin-left: 20px;
-  position: relative;
-  bottom: 180px;
+  width: 50%;
+ 
+}
+
+#div0{
+  margin-left: 75%;
+}
+
+#div0 > p{
+  display: inline;
+}
+
+#div0 > a{
+  border-radius: 8px;
+  background-image: linear-gradient(to left, red, rgb(202, 32, 32));
+  outline: 0;
+  border: 0px;
+  padding: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+#div0 > a:hover{
+  background-image: linear-gradient(to left,rgb(202, 32, 32), red);
+}
+
+#divPesquisas{
+  width: 150px;
+  height: 100px;
+  overflow-y: auto;
+  margin: auto;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+#divPesquisas > p{
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+#divPesquisas > p:hover{
+  background-color: #ccc;
+}
+
+#divPesquisas > a.active{
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+#divList{
+  display: inline-block;
+  text-align: center;
 }
 
 .bList {
@@ -64,7 +119,6 @@ body {
   padding: 8px;
   cursor: pointer;
   margin-bottom: 10px;
-  margin-left: 1190px;
 }
 
 h2{

@@ -21,9 +21,39 @@
             <p></p> <!--Inserir a descrição da pesquisa dentro do paragrafo-->
         </div>
 
+        <!--AQUI FICA O GRÁFICO DA PESQUISA-->
         <div id="div3">
-            <!--Dentro desta div ficará o gráfico da pesquisa, baseado no tempo e quantidade da palavra-->
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa pariatur facilis architecto ipsum, totam impedit nisi maxime odio voluptate eaque, optio iusto earum amet repudiandae corporis blanditiis doloremque. Consequuntur, quasi.</p>
+        <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['data', 'Adulto Ney'],
+          ['30/06/2021',  10],
+          ['31/06/2021',  23],
+          ['01/06/2021',  7],
+        ]);
+
+        var options = {
+          title: 'Quantidade e dias que a palavra mais apareceu',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  </body>
+</html>
         </div>
     </div>
 </body>

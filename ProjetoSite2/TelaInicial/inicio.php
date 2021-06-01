@@ -40,7 +40,11 @@ $ListaQuery = mysqli_query($con, "SELECT NomePesquisa FROM pesquisa WHERE fk_Usu
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="contaConfig" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaUsuario/TelaInicio.php'">Configurações da conta</button>
+    <div id="div0">
+        <button class="contaConfig" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaUsuario/TelaInicio.php'">Configurações da conta</button>
+            <p>OU</p>
+            <a href="logout.php">DESLOGAR</a>
+    </div>
     <div id="div1">
         
         <?php
@@ -52,19 +56,20 @@ $ListaQuery = mysqli_query($con, "SELECT NomePesquisa FROM pesquisa WHERE fk_Usu
         
         <div id="div2">
             <h3>Suas pesquisas recentes:</h3>
-            <p>Selecione as pesquisas que você deseja consultar</p>
+            <p>Selecione as pesquisas que você deseja consultar:</p>
 
             <div id="divList">
-                <form id="formList">
-                   
-                <?php 
-                    while($reg = mysqli_fetch_assoc($ListaQuery))
-                        echo "<p><input name='op' type='radio'> $reg[NomePesquisa]</p>";
-                ?>
-                
+                <div id="divPesquisas">
+                    <form id="formList">
+                        <?php 
+                            while($reg = mysqli_fetch_assoc($ListaQuery))
+                                echo "<p><input name='op' type='radio'> $reg[NomePesquisa]</p>";
+                        ?>
+                    </form>
+                </div>
 
                     
-                </form>
+                
                 <button class="bList">Editar pesquisa</button>
                 <button class="bList">Consultar o gráfico</button>
                 <button id="bExcluir">Excluir pesquisa</button>

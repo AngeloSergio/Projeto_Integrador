@@ -13,6 +13,7 @@
         <h2>Aqui ficam os dados da sua conta</h2>
         <span>
             <h3>Nome: </h3>
+            <!--Utilizar comando em PHP pra exibir a varivel do banco-->
             <strong>nome_do_usuário</strong>
         </span>
 
@@ -31,8 +32,6 @@
             <strong>senha_do_usuário</strong>
         </span>
         <button class="botoes" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaInicial/inicio.php'">Voltar para o inicio </button>
-        <p id="pzin">ou</p>
-        <button class="botoes" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaUsuario/TelaEdit.php'"> Alterar dados</button>
     </div>
 </body>
 </html>
