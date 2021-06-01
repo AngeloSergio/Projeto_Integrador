@@ -24,7 +24,8 @@ mysqli_select_db($con, $database) or die ("Erro na conexão do banco");
 
 <?php 
 # Executa a query desejada $query = "SELECT codigo,nome,endereco FROM tabela"; 
-$query = mysqli_query($con, "SELECT Nome FROM usuario WHERE IDUsuario = $sessao")
+$query = mysqli_query($con, "SELECT Nome FROM usuario WHERE IDUsuario = $sessao");
+$ListaQuery = mysqli_query($con, "SELECT NomePesquisa FROM pesquisa WHERE fk_Usuario_IDUsuario = $sessao");
 ?>
 
 
@@ -55,11 +56,14 @@ $query = mysqli_query($con, "SELECT Nome FROM usuario WHERE IDUsuario = $sessao"
 
             <div id="divList">
                 <form id="formList">
-                    <p><input name="op" type="radio"> Pesquisa1</p>
-                    <p><input name="op" type="radio"> Pesquisa2</p>
-                    <p><input name="op" type="radio"> Pesquisa3</p>
-                    <p><input name="op" type="radio"> Pesquisa4</p>
-                    <p><input name="op" type="radio"> Pesquisa5</p>
+                   
+                <?php 
+                    while($reg = mysqli_fetch_assoc($ListaQuery))
+                        echo "<p><input name='op' type='radio'> $reg[NomePesquisa]</p>";
+                ?>
+                
+
+                    
                 </form>
                 <button class="bList">Editar pesquisa</button>
                 <button class="bList">Consultar o gráfico</button>
