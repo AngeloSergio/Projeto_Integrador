@@ -74,7 +74,7 @@ $ListaQuery = mysqli_query($con, "SELECT NomePesquisa FROM pesquisa WHERE fk_Usu
         <div id="criarPesq">
             <h3>Nova pesquisa</h3>
             <p>Clique no botão abaixo para realizar uma nova pesquisa:</p>
-            <button class="bList" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaPesquisa/inicio.php'">Criar pesquisa</button>
+            <button class="bList" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/CriarPesquisa.php'">Criar pesquisa</button>
         </div>
     </div>
 </body>

@@ -18,7 +18,7 @@ $u = new Usuario;
         <form method="POST">
             <input type="email" name= "email" placeholder="E-mail">
             <input type="password"  name= "senha" placeholder="Senha">
-            <input href="AreaPrivada.php" type="submit" value="ACESSAR">
+            <input type="submit" value="ACESSAR">
             <a href="cadastrar.php">Ainda não é inscrito? <strong>Cadastre-se!</strong></a>
         </form>
     </div>
