@@ -9,52 +9,54 @@
 </head>
 <body>
     <div id="div1">
+      <a href="">Voltar para o menu inicial</a>
         <h2>'nome_pesquisa'</h2>
         <p></p>
         <div id="div2">
-            <label for="">Palavra chave: </label> <!--Colocar a variavel com o nome da pesquisa dentro deste label-->
+            <p><label for="">Palavra chave: </label></p> <!--Colocar a variavel com o nome da pesquisa dentro deste label-->
 
-            <label for="">Data-inicio: </label> <!--Se possivel inserir a data dentro deste label-->
-            <label for="">Data-fim</label> <!--Se possivel inserir a data dentro deste label-->
+            <p><label for="">Data-inicio: </label></p> <!--Se possivel inserir a data dentro deste label-->
+            <p><label for="">Data-fim</label></p> <!--Se possivel inserir a data dentro deste label-->
+            <button>Editar</button>
 
-            <label for="">Descrição: </label>
+            <p><label for="">Descrição: </label></p>
             <p></p> <!--Inserir a descrição da pesquisa dentro do paragrafo-->
         </div>
 
-        <!--AQUI FICA O GRÁFICO DA PESQUISA-->
-        <div id="div3">
-        <html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      <!--AQUI FICA O GRÁFICO DA PESQUISA-->
+      <div id="div3">
+                <html>
+          <head>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+              google.charts.load('current', {'packages':['corechart']});
+              google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['data', 'Adulto Ney'],
-          ['30/06/2021',  10],
-          ['31/06/2021',  23],
-          ['01/06/2021',  7],
-        ]);
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ['data', 'Adultto Ney'],
+                  ['30/06/2021',  10],
+                  ['31/06/2021',  23],
+                  ['01/06/2021',  7],
+                ]);
 
-        var options = {
-          title: 'Quantidade e dias que a palavra mais apareceu',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
+                var options = {
+                  title: 'Quantidade e dias que a palavra mais apareceu',
+                  curveType: 'function',
+                  legend: { position: 'bottom' }
+                };
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-  <body>
-    <div id="curve_chart" style="width: 900px; height: 500px"></div>
-  </body>
-</html>
-        </div>
+                chart.draw(data, options);
+              }
+            </script>
+          </head>
+          <body>
+            <div id="curve_chart" style="width: 750px; height: 500px"></div>
+          </body>
+        </html>
+      </div>
     </div>
 </body>
 </html>

@@ -1,30 +1,38 @@
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+
 #div1{
     background-color: whitesmoke;
     width: 100%;
     margin: auto;
-    margin-top: 100px;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 1px 1px 1px;
 }
 
 #div2{
-    background-color: orangered;
+    background-color: #ccc;
     width: 45%;
-    display: inline-block;
+    display: block;
+    border-radius: 40px;
+    padding: 15px;
+    margin: auto;
+    margin-bottom: 20px;
 }
 
 #div3{
-    background-color: yellow;
+    background-color: #ccc;
     border-radius: 10px;
     display: block;
-    position: relative;
-    margin-left: 350px;
-    bottom: 160px;
-    padding: 10px;
+    /*position: relative;*/
+    /*margin-left: 50%;*/
+    /*bottom: 160px;*/
+    padding: 15px;
+    width: 56%;
+    margin-top: 20px;
+    margin: auto;
 }
 
 h2{
@@ -33,7 +41,7 @@ h2{
 }
 
 label{
-    display: block;
+    display: inline-block;
     margin-bottom: 15px;
     font-size: 20px;
 }
