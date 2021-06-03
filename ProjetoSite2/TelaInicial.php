@@ -28,6 +28,7 @@ mysqli_select_db($con, $database) or die ("Erro na conexão do banco");
 # Executa a query desejada $query = "SELECT codigo,nome,endereco FROM tabela"; 
 $query = mysqli_query($con, "SELECT Nome FROM usuario WHERE IDUsuario = $sessao");
 $ListaQuery = mysqli_query($con, "SELECT NomePesquisa FROM pesquisa WHERE fk_Usuario_IDUsuario = $sessao ORDER BY NomePesquisa ASC");
+$linhas = mysqli_num_rows($ListaQuery);
 ?>
 
 
@@ -45,59 +46,75 @@ $ListaQuery = mysqli_query($con, "SELECT NomePesquisa FROM pesquisa WHERE fk_Usu
     <div id="config">
         <button class="contaConfig" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaUsuario.php'">Configurações da conta</button>
         <p id="pzin">ou</p>
-        <a href="">Deslogar</a>
+        <a href="" id="desl">Deslogar</a>
     </div>
     <div id="div1">
     
     
         <?php
-            #while ($reg = mysqli_fetch_array($query))
-            #echo "Seja bem vindo, $reg[Nome] <p>";
+            while ($reg = mysqli_fetch_array($query))
+            echo utf8_encode("<h3 id='usuario'>Seja bem vindo, $reg[Nome]</h3> <p>");
         ?>
         
         <div id="div2">
             <h3>Suas pesquisas recentes:</h3>
-            <p>Selecione as pesquisas que você deseja consultar</p>
+            <h4>Selecione as pesquisas que você deseja consultar</h4>
 
             <div id="divList">
                 <form method="POST" id="formList">
-                   
-                <?php 
+                <div class='vertical-menu'>   
+                <?php
                     while($reg = mysqli_fetch_assoc($ListaQuery))
-                        echo "<p><input name='op' type='radio' value='$reg[NomePesquisa]'>$reg[NomePesquisa]</p>";
+                        echo utf8_encode("<a id='pesquisa'><input name='op' type='radio' value='$reg[NomePesquisa]'>$reg[NomePesquisa]</a>");
+                    
+                ?>
+                </div> 
+                <?php
                         if (isset($_POST['excluir'])) {
-                            $pesquisa = $reg['NomePesquisa'];
                             if(isset($_POST['op']) == true) {
                                 $u->conectar("bancodedados", "localhost", "root", "");
                                 if ($u->msgErro == "") {
                                     if ($u->ApagarPesquisa($_POST['op'])) {
                                         ?>
-                                        <div id="msg-sucesso"> 
-                                        Pesquisa excluida com sucesso!
-                                        </div>
+                                        <script>
+                                window.alert("Pesquisa excluída com sucesso!");
+                                </script>
                                         <?php 
                                     }
                                 } else {
                                 ?>
-                                <div class="msg-erro"> 
+                                <div id="msg-erro"> 
                                 <?php echo "Erro: ".$u->msgErro; ?> 
                                 </div>
                                 <?php
                                 }
                             } else {
                                 ?>
-                                <div class="msg-erro"> 
-                                Selecione uma pesquisa para excluir!
-                                </div>
+                                <script>
+                                window.alert("Selecione uma pesquisa para excluir!");
+                                </script>
                                 <?php
+                            }
+                        }
+                        if (isset($_POST['consultar'])) {
+                            if(isset($_POST['op']) == true) {
+                                $pesquisa = $_POST['op'];
+                                $_SESSION['pesquisa'] = $pesquisa;
+                                header("location: TelaConsulta.php");
+                            } else {
+                                ?>
+                                <script>
+                                window.alert("Selecione uma pesquisa para consultar!");
+                                </script>
+                                <?php    
                             }
                         }
                     ?>
                
                 
-                <button class="bList">Editar pesquisa</button>
-                <button class="bList">Consultar o gráfico</button>
-                <button id="bExcluir"class="bList" name='excluir'>Excluir pesquisa</button>
+                
+                <button class="bList" name="consultar">Consultar o gráfico</button>
+                <button id="bExcluir"class="bList" name="excluir">Excluir pesquisa</button>
                 </form>
                 
                 <?php
@@ -111,8 +128,10 @@ $ListaQuery = mysqli_query($con, "SELECT NomePesquisa FROM pesquisa WHERE fk_Usu
 
         <div id="criarPesq">
             <h3>Nova pesquisa</h3>
-            <p>Clique no botão abaixo para realizar uma nova pesquisa:</p>
+            <h4>Clique no botão abaixo para realizar uma nova pesquisa:</h4>
+            <div id='botaoCriaPesquisa'>
             <button class="bList" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/CriarPesquisa.php'">Criar pesquisa</button>
+            </div>
         </div>
     </div>
 </body>
