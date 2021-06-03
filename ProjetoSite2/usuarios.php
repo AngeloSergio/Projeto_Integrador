@@ -57,23 +57,29 @@ Class Usuario {
         global $pdo;
         
         //Verificar se já existe uma pesquisa com o mesmo nome cadastrado.
-        $sql = $pdo->prepare ("SELECT pesquisa.IDPesquisa, usuario.IDUsuario FROM pesquisa, usuario WHERE NomePesquisa= :np OR palavraChave= :p AND fk_Usuario_IDUsuario = $_SESSION[IDUsuario]");
+        $sql = $pdo->prepare ("SELECT NomePesquisa FROM pesquisa WHERE NomePesquisa= :np AND fk_Usuario_IDUsuario = $_SESSION[IDUsuario]");
         $sql->bindValue(":np", $NomePesquisa);
-        $sql->bindValue(":p", $palavraChave);
         $sql->execute();
         if($sql->RowCount() > 0){
             return false; // já está cadastrada
         } else {
-            //Caso não, cadastrar
-            $sql = $pdo->prepare("INSERT INTO pesquisa (NomePesquisa, palavraChave, TempoInicioPesquisa, TempoFimPesquisa, descricao, fk_Usuario_IDUsuario) VALUES (:np, :p, :tip, :tfp, :d, :fk)");
-            $sql->bindValue(":np",$NomePesquisa);
-            $sql->bindValue(":p",$palavraChave);
-            $sql->bindValue(":tip",$TempoInicioPesquisa);
-            $sql->bindValue(":tfp",$TempoFimPesquisa);
-            $sql->bindValue(":d",$descricao);
-            $sql->bindValue(":fk",$fk_Usuario_IDUsuario);
+            //verificar se o usuario já criou uma palavra chave igual no banco
+            $sql = $pdo->prepare ("SELECT NomePesquisa FROM pesquisa WHERE palavraChave= :p AND fk_Usuario_IDUsuario = $_SESSION[IDUsuario]");
+            $sql->bindValue(":p", $palavraChave);
             $sql->execute();
-            return true;
+            if ($sql->RowCount() > 0) {
+                return false; // já está cadastrada
+            } else {//Caso não, cadastrar
+                $sql = $pdo->prepare("INSERT INTO pesquisa (NomePesquisa, palavraChave, TempoInicioPesquisa, TempoFimPesquisa, descricao, fk_Usuario_IDUsuario) VALUES (:np, :p, :tip, :tfp, :d, :fk)");
+                $sql->bindValue(":np",$NomePesquisa);
+                $sql->bindValue(":p",$palavraChave);
+                $sql->bindValue(":tip",$TempoInicioPesquisa);
+                $sql->bindValue(":tfp",$TempoFimPesquisa);
+                $sql->bindValue(":d",$descricao);
+                $sql->bindValue(":fk",$fk_Usuario_IDUsuario);
+                $sql->execute();
+                return true;
+            }
         }
     }
     public function ApagarPesquisa ($Pesquisa) {
