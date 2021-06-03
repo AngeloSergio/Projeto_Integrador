@@ -45,22 +45,32 @@ $reg = mysqli_fetch_array($query);
     <div id="div1">
       <a href="TelaInicial.php">Voltar para o menu inicial</a>
         
-        <h2><?=$reg['NomePesquisa']?></h2>
         
+        <div id="np">
+          <h2><?=$reg['NomePesquisa']?></h2>
+          <button onclick="window.location.href='http://localhost:3000/editNomePesquisa.php'">Editar</button>
+        </div>
         <p></p>
         <div id="div2">
-          
+
+                
             <p><label for=''>Palavra chave:  <?=$reg['palavraChave']?></label></p>
            <!--Colocar a variavel com o nome da pesquisa dentro deste label-->
+           <br>
           
+                
             <p><label for=''>Data-inicio:  <?=$reg['TempoInicioPesquisa']?></label></p>
            <!--Se possivel inserir a data dentro deste label-->
+           <br>
+                
             <p><label for=''>Data-fim:  <?=$reg['TempoFimPesquisa']?></label></p>
             <!--Se possivel inserir a data dentro deste label-->
-            <button>Editar</button>
+            <button onclick="window.location.href='http://localhost:3000/editDataFim.php'">Editar</button>
+            <br>
             
             <p><label for=''>Descrição:  <?=$reg['Descricao']?></label></p>
-            <p></p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error magni praesentium saepe tempora repellendus necessitatibus fugiat labore cupiditate culpa esse, nulla earum, beatae temporibus vero dolor non minus consectetur!</p>
+            <button onclick="window.location.href='http://localhost:3000/editDescricao.php'">Editar</button>
             <!--Inserir a descrição da pesquisa dentro do paragrafo-->
         </div>
 

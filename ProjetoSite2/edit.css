@@ -11,6 +11,7 @@ div{
     height: 50%;
     padding: 10px;
     text-align: center;
+    margin-top: 80px;
 }
 
 #in{
@@ -30,4 +31,9 @@ input{
     outline: none;
     border: none;
     padding: 5px;
+}
+
+#desc{
+    width: 300px;
+    height: 50px;
 }
