@@ -55,9 +55,11 @@ Class Usuario {
     }
     public function CadastrarPesquisa ($NomePesquisa, $palavraChave, $TempoInicioPesquisa, $TempoFimPesquisa, $descricao, $fk_Usuario_IDUsuario) {
         global $pdo;
+        
         //Verificar se já existe uma pesquisa com o mesmo nome cadastrado.
-        $sql = $pdo->prepare ("SELECT IDPesquisa FROM pesquisa WHERE NomePesquisa = :np AND IDPesquisa = fk_Usuario_IDUsuario");
-        $sql->bindValue(":np",$NomePesquisa);
+        $sql = $pdo->prepare ("SELECT pesquisa.IDPesquisa, usuario.IDUsuario FROM pesquisa, usuario WHERE NomePesquisa= :np OR palavraChave= :p AND fk_Usuario_IDUsuario = $_SESSION[IDUsuario]");
+        $sql->bindValue(":np", $NomePesquisa);
+        $sql->bindValue(":p", $palavraChave);
         $sql->execute();
         if($sql->RowCount() > 0){
             return false; // já está cadastrada
@@ -73,6 +75,22 @@ Class Usuario {
             $sql->execute();
             return true;
         }
+    }
+    public function ApagarPesquisa ($Pesquisa) {
+        global $pdo;
+
+        $sql = $pdo->prepare("DELETE FROM pesquisa WHERE NomePesquisa = :np");
+        $sql->bindValue(":np",$Pesquisa);
+        $sql->execute();
+        
+        return true;
+    }
+    public function PuxarDadosDoBanco ($Id_Usuario) {
+        global $pdo;
+        
+        $sql = $pdo->prepare("SELECT Nome, Email, Senha FROM usuario WHERE IDUsuario = :id");
+        $sql->bindValue(":id",$Id_Usuario);
+        $sql->execute();
     }
 }
 ?>

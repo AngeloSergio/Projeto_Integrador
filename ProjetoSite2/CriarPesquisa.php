@@ -10,10 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crie uma pesquisa</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CriarPesquisa.css">
 </head>
 <body>
-    <button id="voltar" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaInicial/inicio.php'">Voltar</button>
+    <button id="voltar" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaInicial.php'">Voltar</button>
     <div>
         <form action="" method="POST">
             <h2>Criar pesquisa</h2>
@@ -34,7 +34,7 @@
             <label for="">Descrição</label>
             <input id="desc" type="text" name="descricao" placeholder="Dê os detalhes da sua pesquisa" maxlength="100">
             <!--Botão de confirmar a pesquisa-->
-            <input type="submit" value="PESQUISAR" id="btnPesquisar">
+            <input type="submit" name="CriarPesquisa" value="CRIAR PESQUISA" id="btnPesquisar">
         </form>
     </div>
 
@@ -51,7 +51,7 @@
     ?>
     <?php
     //verificar se clicou no botão 
-    if (isset($_POST['nomePesquisa'])) {
+    if (isset($_POST['CriarPesquisa'])) {
         $NomePesquisa = addslashes($_POST['nomePesquisa']);
         $palavraChave = addslashes($_POST['palavraChave']);
         $TempoInicioPesquisa = addslashes(date('Ymd',strtotime($_POST['dataInicio'])));
@@ -61,9 +61,6 @@
             $u->conectar("bancodedados", "localhost", "root", "");
             if ($u->msgErro == "") {
                 if ($u->CadastrarPesquisa($NomePesquisa, $palavraChave, $TempoInicioPesquisa, $TempoFimPesquisa, $descricao, $sessao)) {
-                    echo "$TempoInicioPesquisa <p>";
-                    echo "$sessao";
-                    echo "$palavraChave";
                     ?>
                         <div id="msg-sucesso"> 
                         Pesquisa criada com sucesso!
@@ -72,7 +69,7 @@
                     } else {
                     ?>
                         <div class="msg-erro"> 
-                        Nome de pesquisa já cadastrado! 
+                        Nome de pesquisa ou palavra chave já cadastrado(s)! 
                         </div>
                     <?php
                     } 
