@@ -45,18 +45,20 @@ $reg = mysqli_fetch_array($query);
         <h2>Aqui ficam os dados da sua conta</h2>
         <span>
             <h3>Nome: </h3>
-            <!--Utilizar comando em PHP pra exibir a varivel do banco-->
+            <!--Utilizar comando em PHP pra exibir a variável do banco-->
             <strong>
                 <?=$reg['Nome']?>
             </strong>
+            <button onclick="window.location.href='http://localhost:3000/editNome.php'">Editar</button>
             
         </span>
 
         <span>
             <h3>E-Mail: </h3>
             <strong>
-                <?=$reg['Email']?>
+               <?=$reg['Email']?>
             </strong>
+            <button onclick="window.location.href='http://localhost:3000/editEmail.php'">Editar</button>
         </span>
 
         <span>
@@ -64,6 +66,7 @@ $reg = mysqli_fetch_array($query);
             <strong>
                 <?=$reg['Senha']?>
             </strong>
+            <button onclick="window.location.href='http://localhost:3000/editSenha.php'">Editar</button>
         </span>
         <button class="botoes" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaInicial.php'">Voltar para o inicio </button>
     </div>

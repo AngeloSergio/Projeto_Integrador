@@ -42,13 +42,17 @@ $ListaQuery = mysqli_query($con, "SELECT NomePesquisa FROM pesquisa WHERE fk_Usu
     <link rel="stylesheet" href="TelaInicial.css">
 </head>
 <body>
-    <button class="contaConfig" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaUsuario.php'">Configurações da conta</button>
+    <div id="config">
+        <button class="contaConfig" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaUsuario.php'">Configurações da conta</button>
+        <p id="pzin">ou</p>
+        <a href="">Deslogar</a>
+    </div>
     <div id="div1">
     
     
         <?php
-            while ($reg = mysqli_fetch_array($query))
-            echo "Seja bem vindo, $reg[Nome] <p>";
+            #while ($reg = mysqli_fetch_array($query))
+            #echo "Seja bem vindo, $reg[Nome] <p>";
         ?>
         
         <div id="div2">
@@ -89,6 +93,7 @@ $ListaQuery = mysqli_query($con, "SELECT NomePesquisa FROM pesquisa WHERE fk_Usu
                             }
                         }
                     ?>
+               
                 
                 <button class="bList">Editar pesquisa</button>
                 <button class="bList">Consultar o gráfico</button>
