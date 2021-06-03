@@ -27,8 +27,6 @@ mysqli_select_db($con, $database) or die ("Erro na conexão do banco");
 # Executa a query desejada $query = "SELECT codigo,nome,endereco FROM tabela"; 
 $query = mysqli_query($con, "SELECT Nome, Email, Senha FROM usuario WHERE IDUsuario = $sessao");
 $reg = mysqli_fetch_array($query); 
-
-
 ?>
 
 <html lang="pt-br">
@@ -41,6 +39,7 @@ $reg = mysqli_fetch_array($query);
     <link rel="stylesheet" href="TelaUsuario.css">
 </head>
 <body>
+    <form method="POST">
     <div id="divPrincipal">
         <h2>Aqui ficam os dados da sua conta</h2>
         <span>
@@ -49,7 +48,15 @@ $reg = mysqli_fetch_array($query);
             <strong>
                 <?=$reg['Nome']?>
             </strong>
-            <button onclick="window.location.href='http://localhost:3000/editNome.php'">Editar</button>
+            <?php
+                if (isset($_POST['editarNome'])) {
+                    $nome = $reg['Nome'];
+                    $_SESSION['Nome'] = $nome;
+                    header("location: editNome.php");
+                } 
+                
+                        ?>
+            <button name="editarNome" onclick="window.location.href='http://localhost:3000/editNome.php'">Editar</button>
             
         </span>
 
@@ -58,17 +65,38 @@ $reg = mysqli_fetch_array($query);
             <strong>
                <?=$reg['Email']?>
             </strong>
-            <button onclick="window.location.href='http://localhost:3000/editEmail.php'">Editar</button>
+            <?php
+                if (isset($_POST['editarEmail'])) {
+                    $email = $reg['Email'];
+                    $_SESSION['Email'] = $email;
+                    header("location: editEmail.php");
+                } 
+                
+                        ?>
+            <button name="editarEmail" onclick="window.location.href='http://localhost:3000/editEmail.php'">Editar</button>
         </span>
 
         <span>
             <h3>Senha: </h3>
             <strong>
-                <?=$reg['Senha']?>
+                Sua senha
             </strong>
-            <button onclick="window.location.href='http://localhost:3000/editSenha.php'">Editar</button>
+            <?php
+                if (isset($_POST['editarSenha'])) {
+                    $senha = $reg['Senha'];
+                    $_SESSION['Senha'] = $senha;
+                    header("location: editSenha.php");
+                } 
+            ?>
+            <button name="editarSenha" onclick="window.location.href='http://localhost:3000/editSenha.php'">Editar</button>
         </span>
-        <button class="botoes" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaInicial.php'">Voltar para o inicio </button>
+        <button name="voltar" class="botoes">Voltar para o inicio </button>
+        <?php 
+            if (isset($_POST['voltar'])) {
+                header("location: http://localhost/ProjetoSite2/Projeto/TelaInicial.php");
+            }
+        ?>
     </div>
+    </form>
 </body>
 </html>

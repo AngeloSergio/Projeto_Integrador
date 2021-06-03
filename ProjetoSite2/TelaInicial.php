@@ -46,10 +46,11 @@ $linhas = mysqli_num_rows($ListaQuery);
     <div id="config">
         <button class="contaConfig" onclick="window.location.href='http://localhost/ProjetoSite2/Projeto/TelaUsuario.php'">Configurações da conta</button>
         <p id="pzin">ou</p>
-        <a href="" id="desl">Deslogar</a>
+        <form method="POST" id="formList">
+        <input id="desl" name="deslogar" type="submit" value="Deslogar"></a> </form>
     </div>
     <div id="div1">
-    
+        
     
         <?php
             while ($reg = mysqli_fetch_array($query))
@@ -62,7 +63,13 @@ $linhas = mysqli_num_rows($ListaQuery);
 
             <div id="divList">
                 <form method="POST" id="formList">
-                <div class='vertical-menu'>   
+                <div class='vertical-menu'>  
+                <?php 
+                if (isset($_POST['deslogar']) == true) {
+                    header("location: login.php");
+                    exit();
+                }
+        ?> 
                 <?php
                     while($reg = mysqli_fetch_assoc($ListaQuery))
                         echo utf8_encode("<a id='pesquisa'><input name='op' type='radio' value='$reg[NomePesquisa]'>$reg[NomePesquisa]</a>");

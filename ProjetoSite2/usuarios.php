@@ -98,5 +98,26 @@ Class Usuario {
         $sql->bindValue(":id",$Id_Usuario);
         $sql->execute();
     }
+    public function AlterarNome ($nome) {
+        global $pdo;
+        
+        $sql = $pdo->prepare("UPDATE usuario SET Nome = :n WHERE IDUsuario = $_SESSION[IDUsuario]");
+        $sql->bindValue(":n",$nome);
+        $sql->execute();    
+    }
+    public function AlterarEmail ($email) {
+        global $pdo;
+        
+        $sql = $pdo->prepare("UPDATE usuario SET Email = :e WHERE IDUsuario = $_SESSION[IDUsuario]");
+        $sql->bindValue(":e",$email);
+        $sql->execute();    
+    }
+    public function AlterarSenha ($senha) {
+        global $pdo;
+        
+        $sql = $pdo->prepare("UPDATE usuario SET Senha = :s WHERE IDUsuario = $_SESSION[IDUsuario]");
+        $sql->bindValue(":s",md5($senha));
+        $sql->execute();    
+    }
 }
 ?>
