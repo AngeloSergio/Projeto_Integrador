@@ -27,7 +27,7 @@ mysqli_select_db($con, $database) or die ("Erro na conexão do banco");
 <?php 
 # Executa a query desejada $query = "SELECT codigo,nome,endereco FROM tabela"; 
 $query = mysqli_query($con, "SELECT Nome FROM usuario WHERE IDUsuario = $sessao");
-$ListaQuery = mysqli_query($con, "SELECT NomePesquisa FROM pesquisa WHERE fk_Usuario_IDUsuario = $sessao ORDER BY NomePesquisa ASC");
+$ListaQuery = mysqli_query($con, "SELECT IDPesquisa, NomePesquisa FROM pesquisa WHERE fk_Usuario_IDUsuario = $sessao ORDER BY NomePesquisa ASC");
 $linhas = mysqli_num_rows($ListaQuery);
 ?>
 
@@ -106,6 +106,7 @@ $linhas = mysqli_num_rows($ListaQuery);
                         if (isset($_POST['consultar'])) {
                             if(isset($_POST['op']) == true) {
                                 $pesquisa = $_POST['op'];
+                                $idpesquisa = $reg['IDPesquisa'];
                                 $_SESSION['pesquisa'] = $pesquisa;
                                 header("location: TelaConsulta.php");
                             } else {

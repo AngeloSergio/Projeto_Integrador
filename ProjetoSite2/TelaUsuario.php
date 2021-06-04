@@ -46,7 +46,7 @@ $reg = mysqli_fetch_array($query);
             <h3>Nome: </h3>
             <!--Utilizar comando em PHP pra exibir a variável do banco-->
             <strong>
-                <?=$reg['Nome']?>
+                <?php echo utf8_encode($reg['Nome']);?>
             </strong>
             <?php
                 if (isset($_POST['editarNome'])) {
@@ -63,7 +63,7 @@ $reg = mysqli_fetch_array($query);
         <span>
             <h3>E-Mail: </h3>
             <strong>
-               <?=$reg['Email']?>
+               <?php echo utf8_encode($reg['Email']);?>
             </strong>
             <?php
                 if (isset($_POST['editarEmail'])) {
@@ -73,7 +73,7 @@ $reg = mysqli_fetch_array($query);
                 } 
                 
                         ?>
-            <button name="editarEmail" onclick="window.location.href='http://localhost:3000/editEmail.php'">Editar</button>
+            <button name="editarEmail">Editar</button>
         </span>
 
         <span>
@@ -88,7 +88,7 @@ $reg = mysqli_fetch_array($query);
                     header("location: editSenha.php");
                 } 
             ?>
-            <button name="editarSenha" onclick="window.location.href='http://localhost:3000/editSenha.php'">Editar</button>
+            <button name="editarSenha">Editar</button>
         </span>
         <button name="voltar" class="botoes">Voltar para o inicio </button>
         <?php 

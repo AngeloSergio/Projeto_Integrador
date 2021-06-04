@@ -10,7 +10,7 @@ header('Content-Type: text/html; charset=utf-8');
     exit();
   }
   $sessao = $_SESSION['IDUsuario'];
-
+  
 # Substitua abaixo os dados, de acordo com o banco criado
 $user = "root"; 
 $password = ""; 
@@ -28,8 +28,11 @@ mysqli_select_db($con, $database) or die ("Erro na conexão do banco");
 
 <?php 
 # Executa a query desejada $query = "SELECT codigo,nome,endereco FROM tabela"; 
-$query = mysqli_query($con, "SELECT NomePesquisa, palavraChave, TempoInicioPesquisa, TempoFimPesquisa, Descricao FROM pesquisa WHERE NomePesquisa = '$_SESSION[pesquisa]'");
+$query = mysqli_query($con, "SELECT IDPesquisa, NomePesquisa, palavraChave, TempoInicioPesquisa, TempoFimPesquisa, Descricao FROM pesquisa WHERE NomePesquisa = '$_SESSION[pesquisa]'");
 $reg = mysqli_fetch_array($query);
+$palavrachave = $reg['palavraChave'];
+$coleta = mysqli_query($con, "SELECT IDColeta, Dia, qtd FROM coleta WHERE fk_pesquisa_IDPesquisa = '$reg[IDPesquisa]'");
+
 ?>
 
 <!DOCTYPE html>
@@ -45,35 +48,25 @@ $reg = mysqli_fetch_array($query);
     <div id="div1">
       <a href="TelaInicial.php">Voltar para o menu inicial</a>
         
+        <h2><?=$reg['NomePesquisa']?></h2>
         
-        <div id="np">
-          <h2><?=$reg['NomePesquisa']?></h2>
-          <button onclick="window.location.href='http://localhost:3000/editNomePesquisa.php'">Editar</button>
-        </div>
         <p></p>
         <div id="div2">
-
-                
-            <p><label for=''>Palavra chave:  <?=$reg['palavraChave']?></label></p>
-           <!--Colocar a variavel com o nome da pesquisa dentro deste label-->
-           <br>
           
-                
-            <p><label for=''>Data-inicio:  <?=$reg['TempoInicioPesquisa']?></label></p>
+            <p><label for=''>Palavra chave:  <?php echo utf8_encode($reg['palavraChave'])?></label></p>
+           <!--Colocar a variavel com o nome da pesquisa dentro deste label-->
+          
+            <p><label for=''>Data-inicio:  <?=date('d/m/Y', strtotime($reg['TempoInicioPesquisa']))?></label></p>
            <!--Se possivel inserir a data dentro deste label-->
-           <br>
-                
-            <p><label for=''>Data-fim:  <?=$reg['TempoFimPesquisa']?></label></p>
+            <p><label for=''>Data-fim:  <?=date('d/m/Y', strtotime($reg['TempoFimPesquisa']))?></label></p>
             <!--Se possivel inserir a data dentro deste label-->
-            <button onclick="window.location.href='http://localhost:3000/editDataFim.php'">Editar</button>
-            <br>
             
-            <p><label for=''>Descrição:  <?=$reg['Descricao']?></label></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis error magni praesentium saepe tempora repellendus necessitatibus fugiat labore cupiditate culpa esse, nulla earum, beatae temporibus vero dolor non minus consectetur!</p>
-            <button onclick="window.location.href='http://localhost:3000/editDescricao.php'">Editar</button>
+            
+            <p><label for=''>Descrição:  <?php echo utf8_encode($reg['Descricao'])?></label></p>
+            <p></p>
             <!--Inserir a descrição da pesquisa dentro do paragrafo-->
         </div>
-
+        
       <!--AQUI FICA O GRÁFICO DA PESQUISA-->
       <div id="div3">
                 <html>
@@ -85,10 +78,17 @@ $reg = mysqli_fetch_array($query);
 
               function drawChart() {
                 var data = google.visualization.arrayToDataTable([
-                  ['data', 'Adultto Ney'],
-                  ['30/06/2021',  10],
-                  ['31/06/2021',  23],
-                  ['01/06/2021',  7],
+                  ['Data', 'Frequência'],
+                  <?php
+                  while ($reg = mysqli_fetch_array($coleta)) {
+                    $data = $reg['Dia'];
+                    $dataa = date('d/m/Y', strtotime($data));
+                    $qtd = $reg['qtd'];
+                    ?>
+                    [<?php echo "'$dataa'"?>, <?php echo $qtd?>],
+                    <?php
+                  } 
+                    ?>
                 ]);
 
                 var options = {

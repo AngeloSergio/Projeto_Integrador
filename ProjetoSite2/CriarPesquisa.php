@@ -26,10 +26,10 @@
             <!--Datas da pesquisa-->
             
             <label for="">Data-inicio</label>
-            <input type="date" name="dataInicio">
+            <input type="date" name="dataInicio" min="2021-01-01" max="2021-12-31">
 
             <label for="">Data-fim</label>
-            <input type="date" name="dataFim">
+            <input type="date" name="dataFim" min="2021-01-01" max="2021-12-31">
             <!--Descrição da pesquisa-->
             <label for="">Descrição</label>
             <input id="desc" type="text" name="descricao" placeholder="Dê os detalhes da sua pesquisa" maxlength="100">
