@@ -51,8 +51,7 @@ $linhas = mysqli_num_rows($ListaQuery);
     </div>
     <div id="div1">
         
-    
-        <?php
+    <?php
             while ($reg = mysqli_fetch_array($query))
             echo utf8_encode("<h3 id='usuario'>Seja bem vindo, $reg[Nome]</h3> <p>");
         ?>
@@ -118,10 +117,13 @@ $linhas = mysqli_num_rows($ListaQuery);
                             }
                         }
                     ?>
+        
                
                 
                 
                 <button class="bList" name="consultar">Consultar o gráfico</button>
+                <button class = "bList" name="exportar">Exportar dados</button>
+                <button class="bList" name="alterar">Alterar pesquisa</button>
                 <button id="bExcluir"class="bList" name="excluir">Excluir pesquisa</button>
                 </form>
                 
