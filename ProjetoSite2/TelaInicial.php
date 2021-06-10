@@ -116,6 +116,20 @@ $linhas = mysqli_num_rows($ListaQuery);
                                 <?php    
                             }
                         }
+                        if (isset($_POST['alterar'])) {
+                            if (isset($_POST['op']) == true) {
+                                $pesquisa = $_POST['op'];
+                                $idpesquisa = $reg['IDPesquisa'];
+                                $_SESSION['pesquisa'] = $pesquisa;
+                                header("location: EditarPesquisa.php");
+                            } else {
+                                ?>
+                                <script>
+                                window.alert("Selecione uma pesquisa para editar!");
+                                </script>
+                                <?php
+                            }
+                        } 
                     ?>
         
                

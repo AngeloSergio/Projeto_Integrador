@@ -119,5 +119,15 @@ Class Usuario {
         $sql->bindValue(":s",md5($senha));
         $sql->execute();    
     }
+    public function EditarPesquisa ($NomePesquisa, $palavraChave, $TempoInicioPesquisa, $TempoFimPesquisa, $descricao, $IDPesquisa) {
+        global $pdo;
+        $sql = $pdo->prepare ("UPDATE Pesquisa SET NomePesquisa = :np, palavraChave = :pc, TempoInicioPesquisa = :tip, TempoFimPesquisa = :tfp, descricao = :d WHERE IDPesquisa = $IDPesquisa");
+        $sql->bindValue(":np",$NomePesquisa);
+        $sql->bindValue(":pc",$palavraChave);
+        $sql->bindValue(":tip",$TempoInicioPesquisa);
+        $sql->bindValue(":tfp",$TempoFimPesquisa);
+        $sql->bindValue(":d",$descricao);
+        $sql->execute();
+    }
 }
 ?>

@@ -66,13 +66,13 @@
                         Pesquisa criada com sucesso!
                         </div>
                     <?php
-                    } else {
+                } else {
                     ?>
                         <div class="msg-erro"> 
                         Nome de pesquisa ou palavra chave já cadastrado(s)! 
                         </div>
                     <?php
-                    } 
+                } 
             } else {
             ?>
             <div class="msg-erro"> 
